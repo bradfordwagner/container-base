@@ -14,27 +14,28 @@ spec:
       parameters:
       - name: tag
     steps:
-    - - name: kaniko-build
+    - - name: mirror-image
         templateRef:
-          name: kaniko-template
+          name: flavor-image-mirror-template
           template: main
         arguments:
           parameters:
           - name: repo_name
             value: quay.io/bradfordwagner/base
           - name: tag
-            value: "{{inputs.parameters.tag}}-{{item.image}}_{{item.tag}}"
+            value: "{{inputs.parameters.tag}}"
           - name: push
             value: ""
-          - name: dockerfile
-            value: |
-              FROM {{item.image}}:{{item.tag}}
+          - name: upstream_repo
+            value: "{{ item.repo }}"
+          - name: upstream_tag
+            value: "{{ item.tag }}"
         withItems:
-        - { image: 'debian', tag: 'buster' }
-        - { image: 'debian', tag: 'bullseye' }
-        - { image: 'alpine', tag: '3.12' }
-        - { image: 'alpine', tag: '3.13' }
-        - { image: 'alpine', tag: '3.14' }
-        - { image: 'ubuntu', tag: 'bionic' }
-        - { image: 'ubuntu', tag: 'focal' }
+        - { repo: 'debian', tag: 'buster' }
+        - { repo: 'debian', tag: 'bullseye' }
+        - { repo: 'alpine', tag: '3.12' }
+        - { repo: 'alpine', tag: '3.13' }
+        - { repo: 'alpine', tag: '3.14' }
+        - { repo: 'ubuntu', tag: 'bionic' }
+        - { repo: 'ubuntu', tag: 'focal' }
 
