@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: base-image-
+spec:
+  entrypoint: build-base-image
+  arguments:
+    parameters:
+    - name: tag
+      value: latest
+  templates:
+  - name: build-base-image
+    inputs:
+      parameters:
+      - name: tag
+    steps:
+    - - name: kaniko-build
+        templateRef:
+          name: kaniko-template
+          template: main
+        arguments:
+          parameters:
+          - name: repo_name
+            value: quay.io/bradfordwagner/base
+          - name: tag
+            value: "{{inputs.parameters.tag}}-{{item.image}}_{{item.tag}}"
+          - name: push
+            value: ""
+          - name: dockerfile
+            value: |
+              FROM {{item.image}}:{{item.tag}}
+        withItems:
+        - { image: 'debian', tag: 'buster' }
+        - { image: 'debian', tag: 'bullseye' }
+        - { image: 'alpine', tag: '3.12' }
+        - { image: 'alpine', tag: '3.13' }
+        - { image: 'alpine', tag: '3.14' }
+        - { image: 'ubuntu', tag: 'bionic' }
+        - { image: 'ubuntu', tag: 'focal' }
+
