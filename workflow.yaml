@@ -20,6 +20,10 @@ spec:
           template: main
         arguments:
           parameters:
+          - name: git_repo
+            value: https://github.com/bradfordwagner/container-base.git
+          - name: git_version
+            value: main
           - name: repo_name
             value: quay.io/bradfordwagner/base
           - name: tag
