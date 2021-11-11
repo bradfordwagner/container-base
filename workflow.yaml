@@ -6,8 +6,6 @@ spec:
   entrypoint: build-base-image
   arguments:
     parameters:
-    - name: tag
-      value: latest
     - name: git_ref_type
       value: branches
     - name: git_version
@@ -15,7 +13,6 @@ spec:
   - name: build-base-image
     inputs:
       parameters:
-      - name: tag
       - name: git_ref_type
       - name: git_version
     steps:
@@ -31,8 +28,6 @@ spec:
             value: "{{inputs.parameters.git_version}}"
           - name: repo_name
             value: quay.io/bradfordwagner/base
-          - name: tag
-            value: "{{inputs.parameters.tag}}"
           - name: upstream_repo
             value: "{{ item.repo }}"
           - name: upstream_tag
