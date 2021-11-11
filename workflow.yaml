@@ -8,28 +8,31 @@ spec:
     parameters:
     - name: tag
       value: latest
+    - name: git_ref_type
+      value: branches
+    - name: git_version
   templates:
   - name: build-base-image
     inputs:
       parameters:
       - name: tag
+      - name: git_ref_type
+      - name: git_version
     steps:
     - - name: mirror-image
         templateRef:
           name: flavor-image-mirror-template
-          template: main
+          template: "{{inputs.parameters.git_ref_type}}"
         arguments:
           parameters:
           - name: git_repo
             value: https://github.com/bradfordwagner/container-base.git
           - name: git_version
-            value: main
+            value: "{{inputs.parameters.git_version}}"
           - name: repo_name
             value: quay.io/bradfordwagner/base
           - name: tag
             value: "{{inputs.parameters.tag}}"
-          - name: push
-            value: ""
           - name: upstream_repo
             value: "{{ item.repo }}"
           - name: upstream_tag
