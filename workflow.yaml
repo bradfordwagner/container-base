@@ -43,5 +43,5 @@ spec:
         - { repo: 'alpine', tag: '3.13'    , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/ppc64le , linux/s390x] }
         - { repo: 'alpine', tag: '3.14'    , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/ppc64le , linux/s390x] }
         - { repo: 'ubuntu', tag: 'bionic'  , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/ppc64le , linux/s390x] }
-        - { repo: 'ubuntu', tag: 'focal'   , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64 , linux/s390x] }
+        - { repo: 'ubuntu', tag: 'focal'   , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x] }
 
