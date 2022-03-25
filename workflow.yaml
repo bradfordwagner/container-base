@@ -32,6 +32,8 @@ spec:
             value: "{{ item.repo }}"
           - name: upstream_tag
             value: "{{ item.tag }}"
+          - name: tag_suffix
+            value: "-{{ item.repo }}_{{item.tag}}"
           - name: runtime_platforms
             value: "{{ item.runtime_platforms }}"
         withItems:
@@ -42,5 +44,4 @@ spec:
         - { repo: 'alpine', tag: '3.14'    , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/ppc64le , linux/s390x] }
         - { repo: 'ubuntu', tag: 'bionic'  , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/ppc64le , linux/s390x] }
         - { repo: 'ubuntu', tag: 'focal'   , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64 , linux/s390x] }
-
 
