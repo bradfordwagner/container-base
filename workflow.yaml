@@ -41,8 +41,10 @@ spec:
         withItems:
         - { repo: 'debian', tag: 'bullseye', runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/mips64le, linux/ppc64le , linux/s390x] }
         - { repo: 'debian', tag: 'bookworm', runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/mips64le, linux/ppc64le , linux/s390x] }
-        - { repo: 'alpine', tag: '3.15'    , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/ppc64le , linux/s390x] }
         - { repo: 'alpine', tag: '3.16'    , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/ppc64le , linux/s390x] }
+        - { repo: 'alpine', tag: '3.17'    , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/386    , linux/ppc64le , linux/s390x] }
         - { repo: 'ubuntu', tag: 'focal'   , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x] }
         - { repo: 'ubuntu', tag: 'kinetic' , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x] }
+        - { repo: 'ubuntu', tag: 'lunar'   , runtime_platforms: [linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x] }
+        - { repo: 'arch',   tag: 'latest' ,  runtime_platforms: [linux/amd64] }
 
