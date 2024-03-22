@@ -1,0 +1,201 @@
+name: docker-mirror-branches
+on:
+  - push
+  - workflow_dispatch
+jobs:
+  alpine_3-19_branches:
+    name: alpine:3.19
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout=self
+        uses: actions/checkout@v4
+      - name: task=3.35.1
+        uses: pnorton5432/setup-task@v1
+        with:
+          task-version: 3.35.1
+      - name: checkout=taskfiles
+        uses: actions/checkout@v4
+        with:
+          path: taskfiles
+          repository: bradfordwagner/taskfiles
+      - name: qemu
+        uses: docker/setup-qemu-action@v3
+      - name: docker_buildx=v0.13.1
+        uses: docker/setup-buildx-action@v3
+        with:
+          version: v0.13.1
+      - name: login=quay.io
+        run: ${{ secrets.QUAY_LOGIN }}
+      - name: task=branches
+        run: |
+          
+          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=alpine             repo_tag=3.19             platforms=linux/amd64,linux/arm64             target_repo=quay.io/bradfordwagner/template-mirror             target_tag=latest             is_tag=false
+
+  alpine_3-18_branches:
+    name: alpine:3.18
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout=self
+        uses: actions/checkout@v4
+      - name: task=3.35.1
+        uses: pnorton5432/setup-task@v1
+        with:
+          task-version: 3.35.1
+      - name: checkout=taskfiles
+        uses: actions/checkout@v4
+        with:
+          path: taskfiles
+          repository: bradfordwagner/taskfiles
+      - name: qemu
+        uses: docker/setup-qemu-action@v3
+      - name: docker_buildx=v0.13.1
+        uses: docker/setup-buildx-action@v3
+        with:
+          version: v0.13.1
+      - name: login=quay.io
+        run: ${{ secrets.QUAY_LOGIN }}
+      - name: task=branches
+        run: |
+          
+          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=alpine             repo_tag=3.18             platforms=linux/amd64,linux/arm64             target_repo=quay.io/bradfordwagner/template-mirror             target_tag=latest             is_tag=false
+
+  debian_bookworm_branches:
+    name: debian:bookworm
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout=self
+        uses: actions/checkout@v4
+      - name: task=3.35.1
+        uses: pnorton5432/setup-task@v1
+        with:
+          task-version: 3.35.1
+      - name: checkout=taskfiles
+        uses: actions/checkout@v4
+        with:
+          path: taskfiles
+          repository: bradfordwagner/taskfiles
+      - name: qemu
+        uses: docker/setup-qemu-action@v3
+      - name: docker_buildx=v0.13.1
+        uses: docker/setup-buildx-action@v3
+        with:
+          version: v0.13.1
+      - name: login=quay.io
+        run: ${{ secrets.QUAY_LOGIN }}
+      - name: task=branches
+        run: |
+          
+          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=debian             repo_tag=bookworm             platforms=linux/amd64,linux/arm64             target_repo=quay.io/bradfordwagner/template-mirror             target_tag=latest             is_tag=false
+
+  debian_bullseye_branches:
+    name: debian:bullseye
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout=self
+        uses: actions/checkout@v4
+      - name: task=3.35.1
+        uses: pnorton5432/setup-task@v1
+        with:
+          task-version: 3.35.1
+      - name: checkout=taskfiles
+        uses: actions/checkout@v4
+        with:
+          path: taskfiles
+          repository: bradfordwagner/taskfiles
+      - name: qemu
+        uses: docker/setup-qemu-action@v3
+      - name: docker_buildx=v0.13.1
+        uses: docker/setup-buildx-action@v3
+        with:
+          version: v0.13.1
+      - name: login=quay.io
+        run: ${{ secrets.QUAY_LOGIN }}
+      - name: task=branches
+        run: |
+          
+          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=debian             repo_tag=bullseye             platforms=linux/amd64,linux/arm64             target_repo=quay.io/bradfordwagner/template-mirror             target_tag=latest             is_tag=false
+
+  ubuntu_noble_branches:
+    name: ubuntu:noble
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout=self
+        uses: actions/checkout@v4
+      - name: task=3.35.1
+        uses: pnorton5432/setup-task@v1
+        with:
+          task-version: 3.35.1
+      - name: checkout=taskfiles
+        uses: actions/checkout@v4
+        with:
+          path: taskfiles
+          repository: bradfordwagner/taskfiles
+      - name: qemu
+        uses: docker/setup-qemu-action@v3
+      - name: docker_buildx=v0.13.1
+        uses: docker/setup-buildx-action@v3
+        with:
+          version: v0.13.1
+      - name: login=quay.io
+        run: ${{ secrets.QUAY_LOGIN }}
+      - name: task=branches
+        run: |
+          
+          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=ubuntu             repo_tag=noble             platforms=linux/amd64,linux/arm64             target_repo=quay.io/bradfordwagner/template-mirror             target_tag=latest             is_tag=false
+
+  ubuntu_mantic_branches:
+    name: ubuntu:mantic
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout=self
+        uses: actions/checkout@v4
+      - name: task=3.35.1
+        uses: pnorton5432/setup-task@v1
+        with:
+          task-version: 3.35.1
+      - name: checkout=taskfiles
+        uses: actions/checkout@v4
+        with:
+          path: taskfiles
+          repository: bradfordwagner/taskfiles
+      - name: qemu
+        uses: docker/setup-qemu-action@v3
+      - name: docker_buildx=v0.13.1
+        uses: docker/setup-buildx-action@v3
+        with:
+          version: v0.13.1
+      - name: login=quay.io
+        run: ${{ secrets.QUAY_LOGIN }}
+      - name: task=branches
+        run: |
+          
+          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=ubuntu             repo_tag=mantic             platforms=linux/amd64,linux/arm64             target_repo=quay.io/bradfordwagner/template-mirror             target_tag=latest             is_tag=false
+
+  archlinux_latest_branches:
+    name: archlinux:latest
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout=self
+        uses: actions/checkout@v4
+      - name: task=3.35.1
+        uses: pnorton5432/setup-task@v1
+        with:
+          task-version: 3.35.1
+      - name: checkout=taskfiles
+        uses: actions/checkout@v4
+        with:
+          path: taskfiles
+          repository: bradfordwagner/taskfiles
+      - name: qemu
+        uses: docker/setup-qemu-action@v3
+      - name: docker_buildx=v0.13.1
+        uses: docker/setup-buildx-action@v3
+        with:
+          version: v0.13.1
+      - name: login=quay.io
+        run: ${{ secrets.QUAY_LOGIN }}
+      - name: task=branches
+        run: |
+          
+          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=archlinux             repo_tag=latest             platforms=linux/amd64             target_repo=quay.io/bradfordwagner/template-mirror             target_tag=latest             is_tag=false
+
