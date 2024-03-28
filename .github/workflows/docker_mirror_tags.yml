@@ -22,10 +22,10 @@ jobs:
           version: 1.7
       - name: resolve_mirrors
         id: mirrors
-        run: echo "config=$(yq -cr '.mirrors' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
+        run: echo "config=$(yq -oj'.mirrors' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
       - name: resolve_target_repo
         id: target_repo
-        run: echo "config=$(yq -cr '.target_repo' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
+        run: echo "config=$(yq -oj '.target_repo' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
   test:
     runs-on: ubuntu-latest
     needs: prepare-matrix
