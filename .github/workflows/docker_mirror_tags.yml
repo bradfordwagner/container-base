@@ -61,7 +61,7 @@ jobs:
             build \
             repo=${{ matrix.mirror.repo }} \
             repo_tag=${{ matrix.mirror.tag }} \
-            platforms=${{ matrix.mirror.platforms }} \
-            target_repo=${{ join(fromJSON(needs.cartesian-product.outputs.config).target_repo, ',') }} \
+            platforms=${{ join(matrix.mirror.platforms,',') }} \
+            target_repo=${{ fromJSON(needs.cartesian-product.outputs.config).target_repo }} \
             target_tag=${{ github.ref_name }} \
             is_tag=true
