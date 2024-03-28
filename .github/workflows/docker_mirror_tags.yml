@@ -8,7 +8,6 @@ jobs:
     name: cartesian_product
     runs-on: ubuntu-latest
     outputs:
-      mirrors: ${{ steps.mirrors.outputs.mirrors }}
       config: ${{ steps.config.outputs.config }}
     steps:
       - uses: actions/checkout@v4
@@ -21,9 +20,6 @@ jobs:
         uses: dcarbone/install-jq-action@v2
         with:
           version: 1.7
-      - name: resolve_mirrors
-        id: mirrors
-        run: echo "mirrors=$(yq -oj '.mirrors' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
       - name: resolve_config
         id: config
         run: echo "config=$(yq -oj '.' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
@@ -34,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        mirror: ${{ fromJSON(needs.cartesian-product.outputs.mirrors) }}
+        mirror: ${{ fromJSON(needs.cartesian-product.outputs.config).mirrors }}
     steps:
       - name: checkout=self
         uses: actions/checkout@v4
