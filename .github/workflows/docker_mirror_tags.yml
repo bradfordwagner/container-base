@@ -23,6 +23,8 @@ jobs:
         name: yq=3.3.2
         with:
           yq-version: 3.3.2
+      - name: which yq
+        run: yq -h
       - name: qemu
         uses: docker/setup-qemu-action@v3
       - name: docker_buildx=v0.13.1
