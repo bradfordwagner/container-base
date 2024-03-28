@@ -4,8 +4,8 @@ on:
     tags:
       - '*'
 jobs:
-  cartesian-product:
-    name: cartesian_product
+  config-yaml:
+    name: config.yaml
     runs-on: ubuntu-latest
     outputs:
       config: ${{ steps.config.outputs.config }}
@@ -23,6 +23,7 @@ jobs:
       - name: resolve_config
         id: config
         run: echo "config=$(yq -oj '.' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
+
   tags:
     runs-on: ubuntu-latest
     needs: cartesian-product
@@ -30,7 +31,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        mirror: ${{ fromJSON(needs.cartesian-product.outputs.config).mirrors }}
+        mirror: ${{ fromJSON(needs.config-yaml.outputs.config).mirrors }}
     steps:
       - name: checkout=self
         uses: actions/checkout@v4
@@ -58,6 +59,6 @@ jobs:
             repo=${{ matrix.mirror.repo }} \
             repo_tag=${{ matrix.mirror.tag }} \
             platforms=${{ join(matrix.mirror.platforms,',') }} \
-            target_repo=${{ fromJSON(needs.cartesian-product.outputs.config).target_repo }} \
+            target_repo=${{ fromJSON(needs.config-yaml.outputs.config).target_repo }} \
             target_tag=${{ github.ref_name }} \
             is_tag=true
