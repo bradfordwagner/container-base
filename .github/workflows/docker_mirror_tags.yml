@@ -24,8 +24,8 @@ jobs:
       - name: resolve_mirrors
         id: mirrors
         run: echo "mirrors=$(yq -oj '.mirrors' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
-      - name: resolve_target_repo
-        id: target_repo
+      - name: resolve_config
+        id: config
         run: echo "config=$(yq -oj '.' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
   test:
     runs-on: ubuntu-latest
