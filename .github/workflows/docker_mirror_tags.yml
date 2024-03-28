@@ -18,6 +18,10 @@ jobs:
         with:
           path: taskfiles
           repository: bradfordwagner/taskfiles
+      # https://github.com/chrisdickinson/setup-yq/blob/latest/action.yml
+      - uses: chrisdickinson/setup-yq@v1.0.1
+        with:
+          yq-version: 3.3.2
       - name: qemu
         uses: docker/setup-qemu-action@v3
       - name: docker_buildx=v0.13.1
