@@ -19,6 +19,7 @@ jobs:
           repository: bradfordwagner/taskfiles
       # https://github.com/chrisdickinson/setup-yq/blob/latest/action.yml
       - uses: chrisdickinson/setup-yq@v1.0.1
+        name: yq=3.3.2
         with:
           yq-version: 3.3.2
       - name: qemu
