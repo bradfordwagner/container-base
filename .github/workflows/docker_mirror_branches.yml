@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       mirrors: ${{ steps.mirrors.outputs.mirrors }}
-      target_repo: ${{ steps.target_repo.outputs.target_repo }}
+      config: ${{ steps.config.outputs.config }}
     steps:
       - uses: actions/checkout@v4
       # https://github.com/chrisdickinson/setup-yq/blob/latest/action.yml
@@ -23,11 +23,9 @@ jobs:
       - name: resolve_mirrors
         id: mirrors
         run: echo "mirrors=$(yq -oj '.mirrors' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
-      - name: debug mirrors
-        run: echo "mirrors=$(yq -oj '.mirrors' config.yaml | jq -cr)"
       - name: resolve_target_repo
         id: target_repo
-        run: echo "target_repo=$(yq -oj '.target_repo' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
+        run: echo "config=$(yq -oj '.' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
   test:
     runs-on: ubuntu-latest
     needs: cartesian-product
@@ -56,5 +54,3 @@ jobs:
           version: v0.13.1
       - name: login=quay.io
         run: ${{ secrets.QUAY_LOGIN }}
-      - name: echo=mirrors
-        run:  echo ${{ toJSON(matrix.mirror) }}
