@@ -23,7 +23,7 @@ jobs:
       - name: export=config
         id: config
         run: echo "config=$(yq -oj '.' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
-
+  
   tags:
     runs-on: ubuntu-latest
     needs: config-yaml
