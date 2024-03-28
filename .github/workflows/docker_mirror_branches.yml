@@ -26,13 +26,10 @@ jobs:
       - name: resolve_target_repo
         id: target_repo
         run: echo "target_repo=$(yq -oj '.target_repo' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
-      - run: echo "config=$(yq -oj '.mirrors' config.yaml | jq -cr)"
-        name: debug mirrors
-
   test:
     runs-on: ubuntu-latest
     needs: cartesian-product
-    name: ${{ matrix.mirror }}
+    name: ${{ matrix.mirror.repo }}-${{ matrix.mirror.tag }}
     strategy:
       fail-fast: false
       matrix:
