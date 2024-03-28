@@ -26,7 +26,7 @@ jobs:
   tags:
     runs-on: ubuntu-latest
     needs: config-yaml
-    name: ${{ matrix.mirror.repo }}-${{ matrix.mirror.tag }}
+    name: ${{ matrix.mirror.repo }}_${{ matrix.mirror.tag }}
     strategy:
       fail-fast: false
       matrix:
