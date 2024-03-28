@@ -22,7 +22,7 @@ jobs:
       - name: resolve_config
         id: config
         run: echo "config=$(yq -oj '.' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
-  test:
+  branches:
     runs-on: ubuntu-latest
     needs: cartesian-product
     name: ${{ matrix.mirror.repo }}-${{ matrix.mirror.tag }}
