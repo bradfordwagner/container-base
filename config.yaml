@@ -1,5 +1,5 @@
 # created by init task for use with github actons
-target_repo: ghcr.io/bradfordwagner/base
+target_repo: ghcr.io/bradfordwagner/container-base
 mirrors:
   - { repo: alpine    , tag: '3.18'   , platforms: [linux/amd64    , linux/arm64] }
   - { repo: alpine    , tag: '3.19'   , platforms: [linux/amd64    , linux/arm64] }
