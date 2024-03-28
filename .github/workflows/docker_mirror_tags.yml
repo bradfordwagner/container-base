@@ -58,4 +58,4 @@ jobs:
       - name: login=quay.io
         run: ${{ secrets.QUAY_LOGIN }}
       - name: echo=mirrors
-        run:  echo ${{ matrix.mirror }}
+        run:  echo ${{ toJSON(matrix.mirror) }}
