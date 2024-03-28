@@ -22,7 +22,6 @@ jobs:
       - name: export=config
         id: config
         run: echo "config=$(yq -oj '.' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
-  
   branches:
     runs-on: ubuntu-latest
     needs: config-yaml
@@ -43,6 +42,7 @@ jobs:
         with:
           path: taskfiles
           repository: bradfordwagner/taskfiles
+      
       - name: qemu
         uses: docker/setup-qemu-action@v3
       - name: docker_buildx=v0.13.1
