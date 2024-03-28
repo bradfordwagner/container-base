@@ -55,3 +55,6 @@ jobs:
           version: v0.13.1
       - name: login=quay.io
         run: ${{ secrets.QUAY_LOGIN }}
+      - name: task=tags
+        run: |
+          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=${{ matrix.mirror.repo }}             repo_tag=${{ matrix.mirror.tag }}             platforms=${{ matrix.mirror.platforms }}             target_repo=${{ fromJSON(needs.cartesian-product.outputs.config).target_repo }}             target_tag=${{ github.ref_name }}             is_tag=true
