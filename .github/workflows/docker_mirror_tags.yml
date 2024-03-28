@@ -20,7 +20,7 @@ jobs:
         uses: dcarbone/install-jq-action@v2
         with:
           version: 1.7
-      - name: resolve_config
+      - name: export=config
         id: config
         run: echo "config=$(yq -oj '.' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
 
