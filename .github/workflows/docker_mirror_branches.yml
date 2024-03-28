@@ -56,4 +56,4 @@ jobs:
         run: ${{ secrets.QUAY_LOGIN }}
       - name: task=branches
         run: |
-          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=${{ matrix.mirror.repo }}             repo_tag=${{ matrix.mirror.tag }}             platforms=${{ matrix.mirror.platforms }}             target_repo=${{ fromJSON(needs.cartesian-product.outputs.config).target_repo }}             target_tag=latest             is_tag=false
+          task -t ./taskfiles/tasks/containers/mirror.yml             build             repo=${{ matrix.mirror.repo }}             repo_tag=${{ matrix.mirror.tag }}             platforms=${{ matrix.mirror.platforms }}             target_repo=${{ join(fromJSON(needs.cartesian-product.outputs.config).target_repo, ',') }}             target_tag=latest             is_tag=false
