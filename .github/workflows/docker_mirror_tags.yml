@@ -29,6 +29,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: prepare-matrix
+    strategy:
+      fail-fast: false
+      matrix:
+        mirror:
+          - alpine_3.16
+          - alpine_3.17
     steps:
       - name: checkout=self
         uses: actions/checkout@v4
@@ -50,4 +56,4 @@ jobs:
       - name: login=quay.io
         run: ${{ secrets.QUAY_LOGIN }}
       - name: echo=mirrors
-        run:  echo ${{ needs.prepare-matrix.outputs.mirrors }}
+        run:  echo ${{ matrix.mirror }}
