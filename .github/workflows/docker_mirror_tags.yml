@@ -8,8 +8,8 @@ jobs:
     name: cartesian_product
     runs-on: ubuntu-latest
     outputs:
-      mirrors: ${{ steps.read-matrix.outputs.mirrors }}
-      target_repo: ${{ steps.read-matrix.outputs.target_repo }}
+      mirrors: ${{ steps.mirrors.outputs.mirrors }}
+      target_repo: ${{ steps.target_repo.outputs.target_repo }}
     steps:
       - uses: actions/checkout@v4
       # https://github.com/chrisdickinson/setup-yq/blob/latest/action.yml
@@ -23,9 +23,9 @@ jobs:
           version: 1.7
       - name: resolve_mirrors
         id: mirrors
-        run: echo "config=$(yq -oj '.mirrors' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
+        run: echo "mirrors=$(yq -oj '.mirrors' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
       - name: debug mirrors
-        run: echo "config=$(yq -oj '.mirrors' config.yaml | jq -cr)"
+        run: echo "mirrors=$(yq -oj '.mirrors' config.yaml | jq -cr)"
       - name: resolve_target_repo
         id: target_repo
         run: echo "target_repo=$(yq -oj '.target_repo' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
