@@ -1,6 +1,6 @@
 # created by init task for use with github actons
 target_repo: ghcr.io/bradfordwagner/base
-mirrors:
+builds:
   - { repo: alpine    , tag: '3.18'   , platforms: [linux/amd64    , linux/arm64] }
   - { repo: alpine    , tag: '3.19'   , platforms: [linux/amd64    , linux/arm64] }
   - { repo: archlinux , tag: latest   , platforms: [linux/amd64] }
