@@ -29,7 +29,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        build: ${{ fromJSON(needs.config-yaml.outputs.config).build }}
+        build: ${{ fromJSON(needs.config-yaml.outputs.config).builds }}
     steps:
       - name: checkout=self
         uses: actions/checkout@v4
