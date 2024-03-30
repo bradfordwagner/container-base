@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        mirror: ${{ fromJSON(needs.config-yaml.outputs.config).mirrors }}
+        build: ${{ fromJSON(needs.config-yaml.outputs.config).build }}
     steps:
       - name: checkout=self
         uses: actions/checkout@v4
@@ -58,11 +58,9 @@ jobs:
           password: ${{ github.token }}
       - name: task=tags
         run: |
+          build=$(echo '${{ toJson(matrix.build) }}'  | jq -rc '.')
           task -t ./taskfiles/tasks/containers/mirror.yml \
             build \
-            repo=${{ matrix.mirror.repo }} \
-            repo_tag=${{ matrix.mirror.tag }} \
-            platforms=${{ join(matrix.mirror.platforms,',') }} \
-            target_repo=${{ fromJSON(needs.config-yaml.outputs.config).target_repo }} \
+            build=${build} \
             target_tag=${{ github.ref_name }} \
             is_tag=true
