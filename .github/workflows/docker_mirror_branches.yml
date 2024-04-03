@@ -24,6 +24,7 @@ jobs:
         run: echo "config=$(yq -oj '.' config.yaml | jq -cr)" >> $GITHUB_OUTPUT
   branches:
     runs-on: ubuntu-latest
+    permissions: write-all
     needs: config-yaml
     name: ${{ matrix.build.repo }}_${{ matrix.build.tag }}
     strategy:
