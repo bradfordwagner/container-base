@@ -1,10 +1,17 @@
 # created by init task for use with github actons
 target_repo: ghcr.io/bradfordwagner/base
 builds:
-  - { repo: alpine    , tag: '3.18'   , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: alpine    , tag: '3.19'   , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: archlinux , tag: latest   , platforms: [linux/amd64] }
-  - { repo: debian    , tag: bookworm , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: debian    , tag: bullseye , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: ubuntu    , tag: mantic   , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: ubuntu    , tag: noble    , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: alpine    , tag: '3.18'        , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: alpine    , tag: '3.19'        , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: archlinux , tag: latest        , platforms: [linux/amd64] }
+  - { repo: debian    , tag: bookworm      , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: debian    , tag: bookworm-slim , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: debian    , tag: bullseye      , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: debian    , tag: bullseye-slim , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: debian    , tag: buster        , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: debian    , tag: buster-slim   , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: ubuntu    , tag: focal         , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: ubuntu    , tag: jammy         , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: ubuntu    , tag: mantic        , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: ubuntu    , tag: noble         , platforms: [linux/amd64    , linux/arm64] }
+    # want support for debian slim packages as well
