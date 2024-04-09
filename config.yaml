@@ -4,6 +4,8 @@ builds:
   - { repo: alpine    , tag: '3.18'        , platforms: [linux/amd64    , linux/arm64] }
   - { repo: alpine    , tag: '3.19'        , platforms: [linux/amd64    , linux/arm64] }
   - { repo: archlinux , tag: latest        , platforms: [linux/amd64] }
+  - { repo: debian    , tag: buster        , platforms: [linux/amd64    , linux/arm64] }
+  - { repo: debian    , tag: buster-slim   , platforms: [linux/amd64    , linux/arm64] }
   - { repo: debian    , tag: bookworm      , platforms: [linux/amd64    , linux/arm64] }
   - { repo: debian    , tag: bookworm-slim , platforms: [linux/amd64    , linux/arm64] }
   - { repo: debian    , tag: bullseye      , platforms: [linux/amd64    , linux/arm64] }
