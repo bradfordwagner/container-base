@@ -1,14 +1,67 @@
-# created by init task for use with github actons
 target_repo: ghcr.io/bradfordwagner/base
 builds:
-  - { repo: alpine     , tag: '3.18'        , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: alpine     , tag: '3.19'        , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: archlinux  , tag: latest        , platforms: [linux/amd64] }
-  - { repo: debian     , tag: bookworm      , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: debian     , tag: bookworm-slim , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: rockylinux , tag: 9             , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: rockylinux , tag: 8             , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: ubuntu     , tag: jammy         , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: ubuntu     , tag: mantic        , platforms: [linux/amd64    , linux/arm64] }
-  - { repo: ubuntu     , tag: noble         , platforms: [linux/amd64    , linux/arm64] }
-    # want support for debian slim packages as well
+    - repo: alpine
+      repo_override: ""
+      tag: "3.18"
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: alpine
+      repo_override: ""
+      tag: "3.19"
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: alpine
+      repo_override: ""
+      tag: "3.20"
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: archlinux
+      repo_override: ""
+      tag: latest
+      archs:
+        - linux/amd64
+    - repo: debian
+      repo_override: ""
+      tag: bookworm
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: debian
+      repo_override: ""
+      tag: bookworm-slim
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: rockylinux
+      repo_override: ""
+      tag: "8"
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: rockylinux
+      repo_override: ""
+      tag: "9"
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: ubuntu
+      repo_override: ""
+      tag: jammy
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: ubuntu
+      repo_override: ""
+      tag: mantic
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: ubuntu
+      repo_override: ""
+      tag: noble
+      archs:
+        - linux/amd64
+        - linux/arm64
