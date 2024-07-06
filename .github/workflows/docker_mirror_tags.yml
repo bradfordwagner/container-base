@@ -21,7 +21,7 @@ jobs:
         run: |
           # write your own scoped version of the following since  is not available at this base level
           # echo product=$(./bin/dagger -m  call product-json --src=. --version=${{ env.version }}) >> $GITHUB_OUTPUT
-          echo product=$(./bin/dagger -m github.com/bradfordwagner/dagger-modules/container_mirror@feature/ansible call product-json --src=. --version=${version}) >> $GITHUB_OUTPUT
+          echo product=$(./bin/dagger -m github.com/bradfordwagner/dagger-modules/container_mirror@main call product-json --src=. --version=${version}) >> $GITHUB_OUTPUT
   builds:
     runs-on: ${{ matrix.product.runner }}
     permissions: write-all
@@ -54,7 +54,7 @@ jobs:
       - name: dagger=build
         id: config
         run: |
-          ./bin/dagger -m github.com/bradfordwagner/dagger-modules/container_mirror@feature/ansible call build \
+          ./bin/dagger -m github.com/bradfordwagner/dagger-modules/container_mirror@main call build \
             --src=. \
             --index=${{ matrix.product.index }} \
             --version=${version} \
@@ -89,7 +89,7 @@ jobs:
       - name: dagger=manifest
         id: config
         run: |
-          ./bin/dagger -m github.com/bradfordwagner/dagger-modules/container_mirror@feature/ansible call manifest \
+          ./bin/dagger -m github.com/bradfordwagner/dagger-modules/container_mirror@main call manifest \
             --src=. \
             --version=${version} \
             --actor=env:actor \
