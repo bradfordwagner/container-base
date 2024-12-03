@@ -5,19 +5,16 @@ builds:
       tag: "3.18"
       archs:
         - linux/amd64
-        - linux/arm64
     - repo: alpine
       repo_override: ""
       tag: "3.19"
       archs:
         - linux/amd64
-        - linux/arm64
     - repo: alpine
       repo_override: ""
       tag: "3.20"
       archs:
         - linux/amd64
-        - linux/arm64
     - repo: archlinux
       repo_override: ""
       tag: latest
@@ -28,40 +25,33 @@ builds:
       tag: bookworm
       archs:
         - linux/amd64
-        - linux/arm64
     - repo: debian
       repo_override: ""
       tag: bookworm-slim
       archs:
         - linux/amd64
-        - linux/arm64
     - repo: rockylinux
       repo_override: ""
       tag: "8"
       archs:
         - linux/amd64
-        - linux/arm64
     - repo: rockylinux
       repo_override: ""
       tag: "9"
       archs:
         - linux/amd64
-        - linux/arm64
     - repo: ubuntu
       repo_override: ""
       tag: jammy
       archs:
         - linux/amd64
-        - linux/arm64
     - repo: ubuntu
       repo_override: ""
       tag: mantic
       archs:
         - linux/amd64
-        - linux/arm64
     - repo: ubuntu
       repo_override: ""
       tag: noble
       archs:
         - linux/amd64
-        - linux/arm64
