@@ -47,11 +47,11 @@ builds:
         - linux/amd64
     - repo: ubuntu
       repo_override: ""
-      tag: mantic
+      tag: noble
       archs:
         - linux/amd64
     - repo: ubuntu
       repo_override: ""
-      tag: noble
+      tag: plucky
       archs:
         - linux/amd64
