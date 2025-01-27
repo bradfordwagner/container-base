@@ -1,4 +1,5 @@
 target_repo: ghcr.io/bradfordwagner/base
+flavor: mirror
 builds:
     - repo: alpine
       repo_override: ""
