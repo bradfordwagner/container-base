@@ -3,12 +3,6 @@ flavor: mirror
 builds:
     - repo: alpine
       repo_override: ""
-      tag: "3.18"
-      archs:
-        - linux/amd64
-        - linux/arm64
-    - repo: alpine
-      repo_override: ""
       tag: "3.19"
       archs:
         - linux/amd64
@@ -16,6 +10,18 @@ builds:
     - repo: alpine
       repo_override: ""
       tag: "3.20"
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: alpine
+      repo_override: ""
+      tag: "3.21"
+      archs:
+        - linux/amd64
+        - linux/arm64
+    - repo: alpine
+      repo_override: ""
+      tag: "3.22"
       archs:
         - linux/amd64
         - linux/arm64
@@ -42,8 +48,8 @@ builds:
       archs:
         - linux/amd64
         - linux/arm64
-    - repo: rockylinux
-      repo_override: ""
+    - repo: rockylinux/rockylinux
+      repo_override: "rockylinux"
       tag: "9"
       archs:
         - linux/amd64
