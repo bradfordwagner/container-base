@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
-pacman -S --noconfirm ca-certificates-utils
+pacman -Sy --noconfirm ca-certificates-utils
 update-ca-certificates
