@@ -19,6 +19,15 @@ builds:
       commands:
         - scripts/alpine.sh
         - scripts/test.sh
+    - repo: alpine
+      repo_override: ""
+      tag: "3.24"
+      archs:
+        - linux/amd64
+        - linux/arm64
+      commands:
+        - scripts/alpine.sh
+        - scripts/test.sh
     - repo: archlinux
       repo_override: ""
       tag: latest
@@ -63,6 +72,24 @@ builds:
       commands:
         - scripts/debian.sh
         - scripts/test.sh
+    - repo: debian
+      repo_override: ""
+      tag: forky
+      archs:
+        - linux/amd64
+        - linux/arm64
+      commands:
+        - scripts/debian.sh
+        - scripts/test.sh
+    - repo: debian
+      repo_override: ""
+      tag: forky-slim
+      archs:
+        - linux/amd64
+        - linux/arm64
+      commands:
+        - scripts/debian.sh
+        - scripts/test.sh
     - repo: ubuntu
       repo_override: ""
       tag: noble
@@ -75,6 +102,15 @@ builds:
     - repo: ubuntu
       repo_override: ""
       tag: plucky
+      archs:
+        - linux/amd64
+        - linux/arm64
+      commands:
+        - scripts/debian.sh
+        - scripts/test.sh
+    - repo: ubuntu
+      repo_override: ""
+      tag: questing
       archs:
         - linux/amd64
         - linux/arm64
