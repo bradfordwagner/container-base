@@ -101,16 +101,7 @@ builds:
         - scripts/test.sh
     - repo: ubuntu
       repo_override: ""
-      tag: plucky
-      archs:
-        - linux/amd64
-        - linux/arm64
-      commands:
-        - scripts/debian.sh
-        - scripts/test.sh
-    - repo: ubuntu
-      repo_override: ""
-      tag: questing
+      tag: resolute
       archs:
         - linux/amd64
         - linux/arm64
